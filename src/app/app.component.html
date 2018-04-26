@@ -1,8 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-navbar></app-navbar>
-
+<app-navbar [cart]="cart"></app-navbar>
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
-<app-home></app-home>
+</div>
+
+    <main class="container">
+
+  <app-home [cart]="cart"></app-home>
+
+    </main>
