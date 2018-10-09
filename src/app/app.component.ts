@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartModel } from './cart-model';
-import { CartItemModel } from './cart-item-model';
+import { CartItemModel } from './cart-item-model'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,5 +14,5 @@ export class AppComponent {
     totalquantity: 0,
     items: []
 };
-year = (new Date().getFullYear());
+year = (new Date().getFullYear())
 }

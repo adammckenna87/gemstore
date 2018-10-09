@@ -1,6 +1,6 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { GemModel } from '../gem-model';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CartModel } from '../cart-model'
 @Component({
   selector: 'app-gem',
@@ -12,15 +12,14 @@ export class GemComponent implements OnInit {
 
   @Input() cart: CartModel;
 
-
-  addToCart(){
-    this.gem.inventory = this.gem.inventory - 1;
-
-    this.cart.totalquantity = this.cart.totalquantity + 1;
-  }
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
   }
-
+  addToCart(){
+    this.gem.inventory = this.gem.inventory - 1;
+    let targetUrl = "http://localhost:55915/api/values/" + this.gem.id;
+    this.cart.totalquantity = this.cart.totalquantity + 1;
+    this.httpClient.put(targetUrl, this.gem).subscribe((result) => {console.log("put finished")});
+  }
 }
